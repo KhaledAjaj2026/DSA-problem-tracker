@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <title>LeetCode Progress Tracker</title>
+</head>
+<body>
+    <header>
+        <h1>DSA Progress Tracker</h1>
+        <h2>Keep track of your progress in data-structure and algorithm problems</h2>
+    </header>
+    <main>
+        <section id="input-section">
+            <div class="input-fields">
+                <div class="input-div">
+                    <label for="question">Question</label>
+                    <input name="question" type="text" placeholder="e.g. Reverse Array">
+                </div>
+                <div class="input-div">
+                    <label for="source">Source</label>
+                    <input name="source" type="text" placeholder="e.g. LeetCode #23">
+                </div>
+                <div class="input-div">
+                    <label for="categories">Categories</label>
+                    <input name="categories" type="text" placeholder="e.g. string, array">
+                </div>
+                <div class="input-div">
+                    <label for="date">Date</label>
+                    <input name="date" type="date" placeholder="e.g. 1/2/2023" maxlength="4" size="4">
+                </div>
+                <div class="input-div">
+                    <label for="time">Time</label>
+                    <input name="time" type="number" placeholder="e.g. 60" maxlength="4" size="4">
+                </div>
+                <button id="enterButton" class="submit" onclick="addRow()">Enter</button>
+            </div>
+            <div class="vertical-line"></div>
+            <div class="deleteRow-div">
+                <label for="deleteRow">Enter row to delete:</label>
+                <input name="deleteRow" type="number" placeholder="0" maxlength="4" size="4">
+                <button id="deletButton" class="submit" onclick="deleteRow()">Delete Row</button>
+            </div>
+        </section>
+        <section id="table-section">
+            <table id="table">
+                <tr>
+                    <th>Question</th>
+                    <th>Source</th>
+                    <th>Categories</th>
+                    <th>Date</th>
+                    <th>Time Spent</th>
+                </tr>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
