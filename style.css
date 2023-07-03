@@ -1,9 +1,24 @@
+@media screen and (max-width: 700px) {
+  body {
+    padding-top: 300px;
+    font-size: 0.7em;
+  }
+  #input-section {
+    flex-direction: column;
+  }
+  input {
+    width: 200px;
+  }
+  .deleteRow-div {
+    margin-top: 5em;
+  }
+}
 body {
-  background-color: #0d1b2a;
+  background-color: rgb(13, 27, 42);
 }
 
 h1, h2, h3, th {
-  color: gainsboro;
+  color: rgb(220, 220, 220);
   text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
@@ -17,7 +32,7 @@ h3 {
 }
 
 p, input, label, tr, td, button {
-  color: gainsboro;
+  color: rgb(220, 220, 220);
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 
@@ -28,7 +43,7 @@ p, input, label, tr, td, button {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background-color: #2e4763;
+  background-color: rgb(46, 71, 99);
   justify-content: space-between;
   padding-left: 15vw;
   padding-right: 15vw;
@@ -41,7 +56,7 @@ p, input, label, tr, td, button {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background-color: #1b263b;
+  background-color: rgb(27, 38, 59);
 }
 
 .vertical-line {
@@ -54,13 +69,15 @@ p, input, label, tr, td, button {
   margin: 2em 40% auto auto;
 }
 
-.deleteRow-div input {
+.deleteRow-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-left: 2em;
-  width: 3rem;
 }
-.deleteRow-div button {
-  display: block;
-  margin: 2em 40% auto auto;
+.deleteRow-div input {
+  margin: 10px;
+  width: 3rem;
 }
 
 .input-div {
@@ -90,18 +107,16 @@ td, th {
 }
 
 th, .submit {
-  background-color: #2c3b58;
+  background-color: rgb(44, 59, 88);
 }
 
 input {
   border-radius: 3px;
-  background-color: #0d1b2a;
+  background-color: rgb(13, 27, 42);
   border: none;
 }
 
 .submit {
   padding: 5px;
   cursor: pointer;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
