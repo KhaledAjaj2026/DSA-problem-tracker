@@ -1,18 +1,3 @@
-@media screen and (max-width: 700px) {
-  body {
-    padding-top: 300px;
-    font-size: 0.7em;
-  }
-  #input-section {
-    flex-direction: column;
-  }
-  input {
-    width: 200px;
-  }
-  .deleteRow-div {
-    margin-top: 5em;
-  }
-}
 body {
   background-color: rgb(13, 27, 42);
 }
@@ -119,4 +104,41 @@ input {
 .submit {
   padding: 5px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    padding-top: 30px;
+    font-size: 0.7em;
+  }
+  #input-section {
+    flex-direction: column;
+  }
+  .input-div {
+    margin: 5px;
+  }
+  .input-div label {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .input-div input {
+    margin-left: 10vw;
+    width: 8rem;
+    height: 1.8rem;
+  }
+  .deleteRow-div {
+    margin-top: 5em;
+  }
+  #table-section table {
+    margin: 0;
+    font-size: 0.6rem;
+  }
+}
+@media screen and (max-width: 350px) {
+  tr, th {
+    font-size: 0.8em;
+  }
+  td {
+    width: 80%;
+  }
 }/*# sourceMappingURL=style.css.map */
