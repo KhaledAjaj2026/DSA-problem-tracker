@@ -1,4 +1,3 @@
-let x = document.cookie = "user=john";
 // keeps track of number of rows, adds num to class of new <tr>.
 let rowNum = 0;
 function addRow() {
@@ -10,18 +9,22 @@ function addRow() {
     const cVal = document.getElementsByName("categories")[0].value;
     const dVal = document.getElementsByName("date")[0].value;
     const tVal = document.getElementsByName("time")[0].value;
+
     if(qVal && sVal && cVal && dVal && tVal) {
         // get table element.
-        const table = document.getElementById("table");
+        const dsaTable = document.getElementById("table");
         // initialize new row and insert input values.
-        table.innerHTML += `
+        dsaTable.innerHTML += `
         <tr class="row-${rowNum}">
+            <td>Problem #${rowNum}</td>
             <td>${qVal}</td>
             <td>${sVal}</td>
             <td>${cVal}</td>
             <td>${dVal}</td>
             <td>${tVal}</td>
         <tr>`;
+        localStorage.setItem(JSON.stringify(rowNum), JSON.stringify(dsaTable));
+        console.log(JSON.parse(localStorage.getItem("1")));
         // clear input fields for new entry.
         // using variables like 'qVal' does not work, reference error.
         document.getElementsByName("question")[0].value = "";

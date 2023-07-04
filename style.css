@@ -58,7 +58,7 @@ p, input, label, tr, td, button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 2em;
+  margin-left: 5px;
 }
 .deleteRow-div input {
   margin: 10px;
@@ -130,12 +130,24 @@ input {
     margin-top: 5em;
   }
   #table-section table {
-    margin: 0;
     font-size: 0.6rem;
   }
 }
 @media screen and (max-width: 350px) {
-  tr, th {
+  #input-section {
+    margin: 10px;
+  }
+  .input-div {
+    margin: 5px;
+  }
+  .input-div input {
+    width: 8rem;
+    height: 1.8rem;
+  }
+  #table-section {
+    margin: 10px;
+  }
+  tr, th, input {
     font-size: 0.8em;
   }
   td {
