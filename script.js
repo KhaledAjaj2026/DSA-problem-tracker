@@ -1,16 +1,16 @@
 // keeps track of number of rows, adds num to class of new <tr>.
 let rowNum = 0;
 function addRow() {
-    // increment rowNum by 1, 
-    rowNum++;
     // set inputs as variables for later initialization & to check if all entered.
     const qVal = document.getElementsByName("question")[0].value;
     const sVal = document.getElementsByName("source")[0].value;
     const cVal = document.getElementsByName("categories")[0].value;
     const dVal = document.getElementsByName("date")[0].value;
     const tVal = document.getElementsByName("time")[0].value;
-
+    
     if(qVal && sVal && cVal && dVal && tVal) {
+        // increment rowNum by 1.
+        rowNum++;
         // get table element.
         const dsaTable = document.getElementById("table");
         // initialize new row and insert input values.

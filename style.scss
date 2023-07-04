@@ -111,6 +111,16 @@ input {
     cursor: pointer;
 }
 
+@media screen and (max-width: 1200px) {
+    .input-fields {
+        margin-right: 20px;
+    }
+    .deleteRow-div {
+        text-align: center;
+        margin-left: 20px;
+    }
+}
+
 @media screen and (max-width: 700px) {
     body {
         padding-top: 30px;
@@ -142,7 +152,7 @@ input {
     
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 425px) {
     #input-section {
         margin: 10px;
     }
@@ -159,7 +169,8 @@ input {
     tr, th, input {
         font-size: 0.8em;
     }
-    td {
-        width: 80%;
+    tr, th, td {
+        padding: 5px;
+        // width: 80%;
     }
 }
