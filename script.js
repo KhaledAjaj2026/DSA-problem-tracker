@@ -14,7 +14,7 @@ console.log(tableData);
 console.log(tableData[3].question);
 
 // get location of table element from DOM.
-const table = document.getElementById('problem-table');
+// const table = document.getElementById('problem-table');
 
 // array for input data field names.
 const inputFields = {
@@ -25,40 +25,20 @@ const inputFields = {
     4: 'date',
     5 :'time'};
 const temp = inputFields[0];
-console.log(inputFields.valueOf(0));
+console.log(temp);
 
 // show table from localStorage.
-for (let i = 1; i <= rowNum; i++) {
+Object.keys(tableData).forEach(parent => {
     const newRow = document.createElement('tr');
-    // for (let i = 0; i <= 5; i++) {
+    Object.keys(tableData[parent]).forEach(child => {
         const dataP = document.createElement('td');
-        const nodeP = document.createTextNode(tableData[i].problemNum);
+        const nodeP = document.createTextNode(tableData[parent][child]);
         dataP.appendChild(nodeP);
         newRow.appendChild(dataP);
-        const dataQ = document.createElement('td');
-        const nodeQ = document.createTextNode(tableData[i].question);
-        dataQ.appendChild(nodeQ);
-        newRow.appendChild(dataQ);
-        const dataS = document.createElement('td');
-        const nodeS = document.createTextNode(tableData[i].source);
-        dataS.appendChild(nodeS);
-        newRow.appendChild(dataS);
-        const dataC = document.createElement('td');
-        const nodeC = document.createTextNode(tableData[i].categories);
-        dataC.appendChild(nodeC);
-        newRow.appendChild(dataC);
-        const dataD = document.createElement('td');
-        const nodeD = document.createTextNode(tableData[i].date);
-        dataD.appendChild(nodeD);
-        newRow.appendChild(dataD);
-        const dataT = document.createElement('td');
-        const nodeT = document.createTextNode(tableData[i].time);
-        dataT.appendChild(nodeT);
-        newRow.appendChild(dataT);
-    // }
+    });
     const table = document.getElementById('problem-table');
     table.appendChild(newRow);
-}
+});
 
 function addRow() {
     // set inputs as variables for later use & to check if all entered.
