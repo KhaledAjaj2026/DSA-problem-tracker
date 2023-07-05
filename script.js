@@ -5,9 +5,9 @@ JSON.parse(localStorage.getItem('row-num')) : 0;
 
 // stores locally the table data of this machine, and loads it
 // if there is any, otherwise an empty Map object is returned.
-const tableData = new Map();
+const tableData = {};
 if (localStorage.getItem('table-data')) {
-    tableData.set(JSON.parse(localStorage.getItem('table-data')));
+    tableData[0] = ('row-0', JSON.parse(localStorage.getItem('table-data')));
 }
 
 console.log(tableData);
@@ -27,13 +27,13 @@ function addRow() {
         // increment rowNum by 1.
         rowNum++;
         // adds data from input to 'tableData' Map.
-        tableData.set(`row-${rowNum}`, {
+        tableData[rowNum] = {
             'question': qVal,
             'source': sVal,
             'categories': cVal,
             'date': dVal,
             'time': tVal
-        });
+        };
         console.log(tableData);
         // add data to localStorage.
         localStorage.setItem('row-num', JSON.stringify(rowNum));
