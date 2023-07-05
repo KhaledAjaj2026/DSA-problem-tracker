@@ -11,6 +11,38 @@ JSON.parse(localStorage.getItem('table-data')) : {};
 console.log(tableData);
 console.log(JSON.parse(localStorage.getItem('table-data'))[2]);
 
+// get location of table element from DOM.
+const table = document.getElementById('problem-table');
+
+// example table loop.
+// for (let i = 0; i < 5; i++) {
+//     const row = document.createElement('tr');
+//     for (let i = 0; i < 10; i++) {
+//         const data = document.createElement('td');
+//         const node = document.createTextNode("The end.");
+//         data.appendChild(node);
+//         row.appendChild(data);
+//     }
+//     const mainDiv = document.getElementById("main-div");
+//     mainDiv.appendChild(row);
+// }
+
+// array for input data field names.
+const inputFields = ['problemNum', 'question', 'source', 'categories', 'date', 'time'];
+
+// show table from localStorage.
+for (let i = 0; i < rowNum; i++) {
+    const newRow = document.createElement('tr');
+    for (let i = 0; i <= 5; i++) {
+        const data = document.createElement('td');
+        const node = document.createTextNode(localStorage.getItem('table-data')[rowNum].question);
+        data.appendChild(node);
+        newRow.appendChild(data);
+    }
+    const table = document.getElementById('problem-table');
+    table.appendChild(newRow);
+}
+
 function addRow() {
     // set inputs as variables for later use & to check if all entered.
     const qVal = document.getElementsByName('question')[0].value;
