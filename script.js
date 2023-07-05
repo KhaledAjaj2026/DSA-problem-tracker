@@ -5,9 +5,9 @@ JSON.parse(localStorage.getItem('row-num')) : 0;
 
 // stores locally the table data of this machine, and loads it
 // if there is any, otherwise an empty Map object is returned.
-const tableData = {};
+let tableData = {};
 if (localStorage.getItem('table-data')) {
-    tableData[0] = ('row-0', JSON.parse(localStorage.getItem('table-data')));
+    tableData = ('row-0', JSON.parse(localStorage.getItem('table-data')));
 }
 
 console.log(tableData);
@@ -37,6 +37,8 @@ function addRow() {
         console.log(tableData);
         // add data to localStorage.
         localStorage.setItem('row-num', JSON.stringify(rowNum));
+        let length = Object.keys(tableData).length;
+        console.log(length);
         localStorage.setItem('table-data', JSON.stringify(tableData));
 
         // // initialize new row and insert input values.
