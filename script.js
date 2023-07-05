@@ -9,7 +9,6 @@ let tableData = localStorage.getItem('table-data') ?
 JSON.parse(localStorage.getItem('table-data')) : {};
 
 console.log(tableData);
-console.log(JSON.parse(localStorage.getItem('table-data'))[2]);
 
 // get location of table element from DOM.
 const table = document.getElementById('problem-table');
@@ -35,7 +34,7 @@ for (let i = 0; i < rowNum; i++) {
     const newRow = document.createElement('tr');
     for (let i = 0; i <= 5; i++) {
         const data = document.createElement('td');
-        const node = document.createTextNode(localStorage.getItem('table-data')[rowNum].question);
+        const node = document.createTextNode(tableData[rowNum].question);
         data.appendChild(node);
         newRow.appendChild(data);
     }
