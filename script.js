@@ -21,6 +21,7 @@ Object.keys(tableData).forEach(parent => {
     table.appendChild(newRow);
 });
 
+// add row to table and store input data in localStorage.
 function addRow() {
     // set inputs as variables for later use & to check if all entered.
     const qVal = document.getElementsByName('question')[0].value;
@@ -41,7 +42,6 @@ function addRow() {
             date: dVal,
             time: tVal
         };
-        console.log(tableData);
         // add data to localStorage.
         localStorage.setItem('row-num', JSON.stringify(rowNum));
         // let length = Object.keys(tableData).length;
@@ -70,6 +70,8 @@ function addRow() {
         alert('One or more fields are empty. Fill out form before pressing \"Enter\".');
     }
 }
+
+// Specify which row to delete and remove it from table & localStorage.
 function deleteRow() {
     // get input row to delete as variable.
     const selectedRow = document.getElementsByName('deleteRow')[0].value;
@@ -87,4 +89,11 @@ function deleteRow() {
         alert(`Invalid row number. Please enter a number between ${1} and ${rowNum}`);
     }
     document.getElementsByName('deleteRow')[0].value = '';
+}
+
+// clear all data from table and localStorage.
+function clearData() {
+    localStorage.clear();
+    window.scrollTo(0, 0);
+    location.reload();
 }

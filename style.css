@@ -65,6 +65,10 @@ p, input, label, tr, td, button {
   width: 3rem;
 }
 
+#clearButton {
+  margin-top: 10px;
+}
+
 .input-div {
   display: flex;
   justify-content: end;
