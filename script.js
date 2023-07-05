@@ -3,29 +3,10 @@
 let rowNum = localStorage.getItem('row-num') ? 
 JSON.parse(localStorage.getItem('row-num')) : 0;
 
-console.log("rowNum: " + rowNum);
-
 // stores locally the table data of this machine, and loads it
-// if there is any, otherwise an empty Map object is returned.
+// if there is any, otherwise an empty object is returned.
 let tableData = localStorage.getItem('table-data') ?
 JSON.parse(localStorage.getItem('table-data')) : {};
-
-console.log(tableData);
-console.log(tableData[3].question);
-
-// get location of table element from DOM.
-// const table = document.getElementById('problem-table');
-
-// array for input data field names.
-const inputFields = {
-    0: 'problemNum',
-    1: 'question',
-    2: 'source',
-    3: 'categories',
-    4: 'date',
-    5 :'time'};
-const temp = inputFields[0];
-console.log(temp);
 
 // show table from localStorage.
 Object.keys(tableData).forEach(parent => {
@@ -72,7 +53,7 @@ function addRow() {
         let rowCount = table.getElementsByTagName('tr').length;
         let row = table.insertRow(rowCount);
         row.insertCell(0).innerHTML = tableData[rowNum].problemNum;
-        row.insertCell(1).innerHTML = JSON.parse(localStorage.getItem('table-data'))[2].question;
+        row.insertCell(1).innerHTML = tableData[rowNum].question;
         row.insertCell(2).innerHTML = tableData[rowNum].source;
         row.insertCell(3).innerHTML = tableData[rowNum].categories;
         row.insertCell(4).innerHTML = tableData[rowNum].date;
