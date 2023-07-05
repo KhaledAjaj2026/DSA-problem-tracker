@@ -12,11 +12,8 @@ if (localStorage.getItem('table-data')) {
 
 console.log(tableData);
 
-// get table element from DOM.
-const dsaTable = document.getElementById('tbody');
-
 function addRow() {
-    // set inputs as variables for later initialization & to check if all entered.
+    // set inputs as variables for later use & to check if all entered.
     const qVal = document.getElementsByName('question')[0].value;
     const sVal = document.getElementsByName('source')[0].value;
     const cVal = document.getElementsByName('categories')[0].value;
@@ -28,6 +25,7 @@ function addRow() {
         rowNum++;
         // adds data from input to 'tableData' Map.
         tableData[rowNum] = {
+            'problem number': rowNum,
             'question': qVal,
             'source': sVal,
             'categories': cVal,
@@ -38,19 +36,19 @@ function addRow() {
         // add data to localStorage.
         localStorage.setItem('row-num', JSON.stringify(rowNum));
         let length = Object.keys(tableData).length;
-        console.log(length);
         localStorage.setItem('table-data', JSON.stringify(tableData));
 
-        // // initialize new row and insert input values.
-        // dsaTable.innerHTML += `
-        // <tr class='row-${rowNum}'>
-        //     <td>Problem #${rowNum}</td>
-        //     <td>${qVal}</td>
-        //     <td>${sVal}</td>
-        //     <td>${cVal}</td>
-        //     <td>${dVal}</td>
-        //     <td>${tVal}</td>
-        // <tr>`;
+        // get table element from DOM.
+        const table = document.getElementById('problem-table');
+        // insert values into table dynamically.
+        let rowCount = table.getElementsByTagName('tr').length;
+        let row = table.insertRow(rowCount);
+        row.insertCell(0).innerHTML = rowNum;
+        row.insertCell(1).innerHTML = qVal;
+        row.insertCell(2).innerHTML = sVal;
+        row.insertCell(3).innerHTML = cVal;
+        row.insertCell(4).innerHTML = dVal;
+        row.insertCell(5).innerHTML = tVal;
 
         // clear input fields for new entry.
         // using variables like 'qVal' does not work, reference error.
