@@ -3,41 +3,59 @@
 let rowNum = localStorage.getItem('row-num') ? 
 JSON.parse(localStorage.getItem('row-num')) : 0;
 
+console.log("rowNum: " + rowNum);
+
 // stores locally the table data of this machine, and loads it
 // if there is any, otherwise an empty Map object is returned.
 let tableData = localStorage.getItem('table-data') ?
 JSON.parse(localStorage.getItem('table-data')) : {};
 
 console.log(tableData);
+console.log(tableData[3].question);
 
 // get location of table element from DOM.
 const table = document.getElementById('problem-table');
 
-// example table loop.
-// for (let i = 0; i < 5; i++) {
-//     const row = document.createElement('tr');
-//     for (let i = 0; i < 10; i++) {
-//         const data = document.createElement('td');
-//         const node = document.createTextNode("The end.");
-//         data.appendChild(node);
-//         row.appendChild(data);
-//     }
-//     const mainDiv = document.getElementById("main-div");
-//     mainDiv.appendChild(row);
-// }
-
 // array for input data field names.
-const inputFields = ['problemNum', 'question', 'source', 'categories', 'date', 'time'];
+const inputFields = {
+    0: 'problemNum',
+    1: 'question',
+    2: 'source',
+    3: 'categories',
+    4: 'date',
+    5 :'time'};
+const temp = inputFields[0];
+console.log(inputFields.valueOf(0));
 
 // show table from localStorage.
-for (let i = 0; i < rowNum; i++) {
+for (let i = 1; i <= rowNum; i++) {
     const newRow = document.createElement('tr');
-    for (let i = 0; i <= 5; i++) {
-        const data = document.createElement('td');
-        const node = document.createTextNode(tableData[rowNum].question);
-        data.appendChild(node);
-        newRow.appendChild(data);
-    }
+    // for (let i = 0; i <= 5; i++) {
+        const dataP = document.createElement('td');
+        const nodeP = document.createTextNode(tableData[i].problemNum);
+        dataP.appendChild(nodeP);
+        newRow.appendChild(dataP);
+        const dataQ = document.createElement('td');
+        const nodeQ = document.createTextNode(tableData[i].question);
+        dataQ.appendChild(nodeQ);
+        newRow.appendChild(dataQ);
+        const dataS = document.createElement('td');
+        const nodeS = document.createTextNode(tableData[i].source);
+        dataS.appendChild(nodeS);
+        newRow.appendChild(dataS);
+        const dataC = document.createElement('td');
+        const nodeC = document.createTextNode(tableData[i].categories);
+        dataC.appendChild(nodeC);
+        newRow.appendChild(dataC);
+        const dataD = document.createElement('td');
+        const nodeD = document.createTextNode(tableData[i].date);
+        dataD.appendChild(nodeD);
+        newRow.appendChild(dataD);
+        const dataT = document.createElement('td');
+        const nodeT = document.createTextNode(tableData[i].time);
+        dataT.appendChild(nodeT);
+        newRow.appendChild(dataT);
+    // }
     const table = document.getElementById('problem-table');
     table.appendChild(newRow);
 }
