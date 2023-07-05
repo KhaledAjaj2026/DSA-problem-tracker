@@ -5,12 +5,11 @@ JSON.parse(localStorage.getItem('row-num')) : 0;
 
 // stores locally the table data of this machine, and loads it
 // if there is any, otherwise an empty Map object is returned.
-let tableData = {};
-if (localStorage.getItem('table-data')) {
-    tableData = ('row-0', JSON.parse(localStorage.getItem('table-data')));
-}
+let tableData = localStorage.getItem('table-data') ?
+JSON.parse(localStorage.getItem('table-data')) : {};
 
 console.log(tableData);
+console.log(JSON.parse(localStorage.getItem('table-data'))[2]);
 
 function addRow() {
     // set inputs as variables for later use & to check if all entered.
@@ -23,19 +22,19 @@ function addRow() {
     if(qVal && sVal && cVal && dVal && tVal) {
         // increment rowNum by 1.
         rowNum++;
-        // adds data from input to 'tableData' Map.
+        // adds data from input to 'tableData' object.
         tableData[rowNum] = {
-            'problem number': rowNum,
-            'question': qVal,
-            'source': sVal,
-            'categories': cVal,
-            'date': dVal,
-            'time': tVal
+            problemNum: rowNum,
+            question: qVal,
+            source: sVal,
+            categories: cVal,
+            date: dVal,
+            time: tVal
         };
         console.log(tableData);
         // add data to localStorage.
         localStorage.setItem('row-num', JSON.stringify(rowNum));
-        let length = Object.keys(tableData).length;
+        // let length = Object.keys(tableData).length;
         localStorage.setItem('table-data', JSON.stringify(tableData));
 
         // get table element from DOM.
@@ -43,12 +42,12 @@ function addRow() {
         // insert values into table dynamically.
         let rowCount = table.getElementsByTagName('tr').length;
         let row = table.insertRow(rowCount);
-        row.insertCell(0).innerHTML = rowNum;
-        row.insertCell(1).innerHTML = qVal;
-        row.insertCell(2).innerHTML = sVal;
-        row.insertCell(3).innerHTML = cVal;
-        row.insertCell(4).innerHTML = dVal;
-        row.insertCell(5).innerHTML = tVal;
+        row.insertCell(0).innerHTML = tableData[rowNum].problemNum;
+        row.insertCell(1).innerHTML = JSON.parse(localStorage.getItem('table-data'))[2].question;
+        row.insertCell(2).innerHTML = tableData[rowNum].source;
+        row.insertCell(3).innerHTML = tableData[rowNum].categories;
+        row.insertCell(4).innerHTML = tableData[rowNum].date;
+        row.insertCell(5).innerHTML = tableData[rowNum].time;
 
         // clear input fields for new entry.
         // using variables like 'qVal' does not work, reference error.
