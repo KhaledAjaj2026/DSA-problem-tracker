@@ -2,6 +2,19 @@
 // stores current user's rows in local machine storage.
 let rowNum = localStorage.getItem('row-num') ? 
 JSON.parse(localStorage.getItem('row-num')) : 0;
+
+// stores locally the table data of this machine, and loads it
+// if there is any, otherwise an empty Map object is returned.
+const tableData = new Map();
+if (localStorage.getItem('table-data')) {
+    tableData.set(JSON.parse(localStorage.getItem('table-data')));
+}
+
+console.log(tableData);
+
+// get table element from DOM.
+const dsaTable = document.getElementById('tbody');
+
 function addRow() {
     // set inputs as variables for later initialization & to check if all entered.
     const qVal = document.getElementsByName('question')[0].value;
@@ -13,19 +26,30 @@ function addRow() {
     if(qVal && sVal && cVal && dVal && tVal) {
         // increment rowNum by 1.
         rowNum++;
-        localStorage.setItem('row-num', JSON.stringify(rowNum))
-        // get table element.
-        const dsaTable = document.getElementById('table');
-        // initialize new row and insert input values.
-        dsaTable.innerHTML += `
-        <tr class='row-${rowNum}'>
-            <td>Problem #${rowNum}</td>
-            <td>${qVal}</td>
-            <td>${sVal}</td>
-            <td>${cVal}</td>
-            <td>${dVal}</td>
-            <td>${tVal}</td>
-        <tr>`;
+        // adds data from input to 'tableData' Map.
+        tableData.set(`row-${rowNum}`, {
+            'question': qVal,
+            'source': sVal,
+            'categories': cVal,
+            'date': dVal,
+            'time': tVal
+        });
+        console.log(tableData);
+        // add data to localStorage.
+        localStorage.setItem('row-num', JSON.stringify(rowNum));
+        localStorage.setItem('table-data', JSON.stringify(tableData));
+
+        // // initialize new row and insert input values.
+        // dsaTable.innerHTML += `
+        // <tr class='row-${rowNum}'>
+        //     <td>Problem #${rowNum}</td>
+        //     <td>${qVal}</td>
+        //     <td>${sVal}</td>
+        //     <td>${cVal}</td>
+        //     <td>${dVal}</td>
+        //     <td>${tVal}</td>
+        // <tr>`;
+
         // clear input fields for new entry.
         // using variables like 'qVal' does not work, reference error.
         document.getElementsByName('question')[0].value = '';
