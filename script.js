@@ -36,9 +36,9 @@ Object.keys(tableData).forEach(parent => {
     table.appendChild(newRow);
 });
 
-console.log("row num: " + rowNum);
-console.log("table-data:");
-console.log(tableData);
+// console.log("row num: " + rowNum);
+// console.log("table-data:");
+// console.log(tableData);
 
 // add row to table and store input data in localStorage.
 function addRow() {
@@ -50,8 +50,6 @@ function addRow() {
     const tVal = document.getElementsByName('time')[0].value;
     
     if(qVal && sVal && cVal && dVal && tVal) {
-        // increment rowNum by 1.
-        rowNum++;
         // adds data from input to 'tableData' object.
         tableData[rowNum] = {
             question: qVal,
@@ -60,6 +58,8 @@ function addRow() {
             date: dVal,
             time: tVal
         };
+        // increment rowNum by 1.
+        rowNum++;
         // add data to localStorage.
         localStorage.setItem('row-num', JSON.stringify(rowNum));
         localStorage.setItem('table-data', JSON.stringify(tableData));
