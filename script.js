@@ -9,6 +9,8 @@ let tableData = localStorage.getItem('table-data') ?
 JSON.parse(localStorage.getItem('table-data')) : {};
 
 // show table from localStorage.
+// 'i' starts at 1 and increments every time an item from
+// localStorage is added to problem-table.
 let i = 1;
 Object.keys(tableData).forEach(parent => {
     let flag = 0;
@@ -89,8 +91,35 @@ function addRow() {
 }
 
 // testing deletion.
-// const tempStorage = localStorage.getItem('table-data');
-// console.log(tempStorage.key(2));
+// Process:
+    // get index of desired deletion.
+    // copy items of table from i+1 to i, all the way up table;
+    // delete last item in table, which will be duplicate.
+const tempStorage = JSON.parse(JSON.stringify(tableData));
+delete tempStorage[1];
+console.log(Object.keys(tempStorage));
+console.log(tempStorage);
+
+/*
+const objj = { 
+    1: 'val1' ,
+    2: 'val2' ,
+    3: 'val3' ,
+    4: 'val4' ,
+    5: 'val5' ,
+    6: 'val6' 
+};
+console.log(objj);
+const nObj = JSON.parse(JSON.stringify(objj));
+const length = Object.keys(objj).length;
+const idx = 3;
+console.log(length);
+for (let i = idx; i <= length; i++) {
+    objj[i] = objj[i+1];
+    console.log(objj);
+}
+delete objj[length];
+*/
 
 // Specify which row to delete and remove it from table & localStorage.
 function deleteRow() {
@@ -102,8 +131,7 @@ function deleteRow() {
     } else if(rowNum === 0){
         alert('No rows to delete.');
     } else if (selectedRow > 0 && selectedRow <= rowNum) {
-        const tempStorage = localStorage.getItem('table-data');
-        console.log(tempStorage.key(2));
+        console.log("delete");
         // rowNum decremented.
         rowNum--;
     } else {
