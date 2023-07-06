@@ -20,6 +20,9 @@ p, input, label, tr, td, button {
     color: rgb(220, 220, 220);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+::-webkit-calendar-picker-indicator {
+    filter: invert(0.9);
+}
 
 @mixin section-layout {
     margin: 20px;

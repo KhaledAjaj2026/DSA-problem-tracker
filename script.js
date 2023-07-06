@@ -9,9 +9,22 @@ let tableData = localStorage.getItem('table-data') ?
 JSON.parse(localStorage.getItem('table-data')) : {};
 
 // show table from localStorage.
+let i = 1;
 Object.keys(tableData).forEach(parent => {
+    let flag = 0;
     const newRow = document.createElement('tr');
     Object.keys(tableData[parent]).forEach(child => {
+        // since problem number is not part of tableData, use key
+        // of object as problem number. Keeps order when adding
+        // and deleting items from table.
+        if (flag === 0) {
+            const dataP = document.createElement('td');
+            const nodeP = document.createTextNode(i);
+            dataP.appendChild(nodeP);
+            newRow.appendChild(dataP);
+            flag = 1;
+            i++;
+        }
         const dataP = document.createElement('td');
         const nodeP = document.createTextNode(tableData[parent][child]);
         dataP.appendChild(nodeP);
@@ -20,6 +33,10 @@ Object.keys(tableData).forEach(parent => {
     const table = document.getElementById('problem-table');
     table.appendChild(newRow);
 });
+
+console.log("row num: " + rowNum);
+console.log("table-data:");
+console.log(tableData);
 
 // add row to table and store input data in localStorage.
 function addRow() {
@@ -35,7 +52,6 @@ function addRow() {
         rowNum++;
         // adds data from input to 'tableData' object.
         tableData[rowNum] = {
-            problemNum: rowNum,
             question: qVal,
             source: sVal,
             categories: cVal,
@@ -44,7 +60,6 @@ function addRow() {
         };
         // add data to localStorage.
         localStorage.setItem('row-num', JSON.stringify(rowNum));
-        // let length = Object.keys(tableData).length;
         localStorage.setItem('table-data', JSON.stringify(tableData));
 
         // get table element from DOM.
@@ -52,7 +67,7 @@ function addRow() {
         // insert values into table dynamically.
         let rowCount = table.getElementsByTagName('tr').length;
         let row = table.insertRow(rowCount);
-        row.insertCell(0).innerHTML = tableData[rowNum].problemNum;
+        row.insertCell(0).innerHTML = rowNum;
         row.insertCell(1).innerHTML = tableData[rowNum].question;
         row.insertCell(2).innerHTML = tableData[rowNum].source;
         row.insertCell(3).innerHTML = tableData[rowNum].categories;
@@ -69,7 +84,13 @@ function addRow() {
     } else {
         alert('One or more fields are empty. Fill out form before pressing \"Enter\".');
     }
+    console.log("new row num: " + rowNum);
+    console.log(tableData);
 }
+
+// testing deletion.
+// const tempStorage = localStorage.getItem('table-data');
+// console.log(tempStorage.key(2));
 
 // Specify which row to delete and remove it from table & localStorage.
 function deleteRow() {
@@ -81,14 +102,15 @@ function deleteRow() {
     } else if(rowNum === 0){
         alert('No rows to delete.');
     } else if (selectedRow > 0 && selectedRow <= rowNum) {
-        // row input via jQuery.
-        $(`.row-${selectedRow}`).remove();
+        const tempStorage = localStorage.getItem('table-data');
+        console.log(tempStorage.key(2));
         // rowNum decremented.
         rowNum--;
     } else {
         alert(`Invalid row number. Please enter a number between ${1} and ${rowNum}`);
     }
     document.getElementsByName('deleteRow')[0].value = '';
+    console.log(JSON.parse(tableData));
 }
 
 // clear all data from table and localStorage.

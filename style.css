@@ -21,6 +21,10 @@ p, input, label, tr, td, button {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 
+::-webkit-calendar-picker-indicator {
+  filter: invert(0.9);
+}
+
 #input-section {
   margin: 20px;
   padding: 30px;
