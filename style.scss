@@ -126,7 +126,7 @@ input {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 725px) {
     body {
         padding-top: 30px;
         font-size: 0.7em;
@@ -135,6 +135,7 @@ input {
         flex-direction: column;
     }
     .input-div {
+        flex-direction: row;
         margin: 5px;
         label {
             padding-left: 5px;
@@ -154,7 +155,6 @@ input {
             font-size: 0.6rem;
         }
     }
-    
 }
 
 @media screen and (max-width: 425px) {
@@ -172,7 +172,7 @@ input {
         margin: 10px;
     }
     tr, th, input {
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
     tr, th, td {
         padding: 5px;

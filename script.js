@@ -96,7 +96,6 @@ const tempStorage = JSON.parse(JSON.stringify(tableData));
 function deleteRow() {
     // get input row to delete as variable.
     const selectedRow = parseInt(document.getElementsByName('deleteRow')[0].value);
-    console.log(selectedRow);
     // if-else statement checking validity of input row.
     if (!selectedRow) {
         alert('No row specified for deletion.');
