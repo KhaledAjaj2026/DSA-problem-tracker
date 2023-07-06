@@ -87,58 +87,38 @@ function addRow() {
         alert('One or more fields are empty. Fill out form before pressing \"Enter\".');
     }
     console.log("new row num: " + rowNum);
-    console.log(tableData);
 }
 
-// testing deletion.
-// Process:
-    // get index of desired deletion.
-    // copy items of table from i+1 to i, all the way up table;
-    // delete last item in table, which will be duplicate.
 const tempStorage = JSON.parse(JSON.stringify(tableData));
-delete tempStorage[1];
-console.log(Object.keys(tempStorage));
-console.log(tempStorage);
-
-/*
-const objj = { 
-    1: 'val1' ,
-    2: 'val2' ,
-    3: 'val3' ,
-    4: 'val4' ,
-    5: 'val5' ,
-    6: 'val6' 
-};
-console.log(objj);
-const nObj = JSON.parse(JSON.stringify(objj));
-const length = Object.keys(objj).length;
-const idx = 3;
-console.log(length);
-for (let i = idx; i <= length; i++) {
-    objj[i] = objj[i+1];
-    console.log(objj);
-}
-delete objj[length];
-*/
-
 // Specify which row to delete and remove it from table & localStorage.
 function deleteRow() {
     // get input row to delete as variable.
-    const selectedRow = document.getElementsByName('deleteRow')[0].value;
+    const selectedRow = parseInt(document.getElementsByName('deleteRow')[0].value);
+    console.log(selectedRow);
     // if-else statement checking validity of input row.
     if (!selectedRow) {
         alert('No row specified for deletion.');
-    } else if(rowNum === 0){
+    } else if(Object.keys(tableData).length === 0){
         alert('No rows to delete.');
     } else if (selectedRow > 0 && selectedRow <= rowNum) {
-        console.log("delete");
+        const length = Object.keys(tempStorage).length;
+        for (let i = selectedRow; i <= length; i++) {
+            Object.assign(tempStorage[i], tempStorage[i+1]);
+        }
+        delete tempStorage[length];
+        Object.assign(tableData, tempStorage);
+        delete tableData[length];
+        localStorage.setItem('table-data', JSON.stringify(tableData));
         // rowNum decremented.
         rowNum--;
+        localStorage.setItem('row-num', rowNum);
+        // reload site to see effects of deletion.
+        window.scrollTo(0, 0);
+        location.reload();
     } else {
         alert(`Invalid row number. Please enter a number between ${1} and ${rowNum}`);
     }
     document.getElementsByName('deleteRow')[0].value = '';
-    console.log(JSON.parse(tableData));
 }
 
 // clear all data from table and localStorage.
