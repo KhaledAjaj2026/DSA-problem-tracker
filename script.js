@@ -50,6 +50,8 @@ function addRow() {
     const tVal = document.getElementsByName('time')[0].value;
     
     if(qVal && sVal && cVal && dVal && tVal) {
+        // increment rowNum by 1.
+        rowNum++;
         // adds data from input to 'tableData' object.
         tableData[rowNum] = {
             question: qVal,
@@ -58,8 +60,6 @@ function addRow() {
             date: dVal,
             time: tVal
         };
-        // increment rowNum by 1.
-        rowNum++;
         // add data to localStorage.
         localStorage.setItem('row-num', JSON.stringify(rowNum));
         localStorage.setItem('table-data', JSON.stringify(tableData));
@@ -83,10 +83,12 @@ function addRow() {
         document.getElementsByName('categories')[0].value = '';
         document.getElementsByName('date')[0].value = '';
         document.getElementsByName('time')[0].value = '';
+        // reload site to see effects of deletion.
+        window.scrollTo(0, 0);
+        location.reload();
     } else {
         alert('One or more fields are empty. Fill out form before pressing \"Enter\".');
     }
-    console.log("new row num: " + rowNum);
 }
 
 const tempStorage = JSON.parse(JSON.stringify(tableData));
@@ -123,7 +125,15 @@ function deleteRow() {
 
 // clear all data from table and localStorage.
 function clearData() {
-    localStorage.clear();
-    window.scrollTo(0, 0);
-    location.reload();
+    const clearChoice = prompt('Are you sure you want to clear all data? Type \"Yes\" to continue.');
+    if (clearChoice === 'Yes' || clearChoice === 'yes') {
+        localStorage.clear();
+        window.scrollTo(0, 0);
+        location.reload();
+        alert("Data cleared.")
+    } else if (clearChoice === null) {
+        alert('Clear cancelled.');
+    } else {
+        alert('Incorrect input, clear cancelled.');
+    }
 }
