@@ -27,7 +27,7 @@ Learned about managing data in localStorage, and about object handling. Had to l
 * Ability to edit individual items in table.
 * Sorting option for getting problems by date, name, or time.
 * Filtering option for getting problems of specific categories or range of time.
-* Remake design of buttons and inputs into more minimalistic, sleek design.
+* Design overhaul; make site more easy to navigate and easier to understand.
 
 ## Deployment
 
