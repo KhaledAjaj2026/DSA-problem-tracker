@@ -4,7 +4,7 @@ A table for keeping record of completed DSA questions. While a simple Excel docu
 
 ## How to Use
 
-While solving DSA questions, keep track of the amount of time it takes to find solution. Once completed, enter the following:
+Time yourself while solving DSA questions. Once completed, enter the following:
 
 * Question (name of the problem)
 * Source (e.g. LeetCode #258, CTCI #64, G4G)
