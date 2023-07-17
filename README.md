@@ -1,6 +1,6 @@
 # Data-Structure and Algorithm Problems Tracker
 
-A table for keeping record of completed DSA questions. While a simple Excel document would suffice for the same purpose, this challenged me to make a website dedicated to this specific purpose.
+A table for keeping record of completed DSA questions. While a simple Excel document would suffice for the same purpose, this challenged me to make a web-app dedicated to saving progress in DSA practice.
 
 ## How to Use
 
