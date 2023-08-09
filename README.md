@@ -22,11 +22,11 @@ Learned about managing data in localStorage, and about object handling. Had to l
 
 ## Possible Future Updates
 
-* New entry: Solved/Unsolved (if user attempted problem but failed to arrive at solution on their own, they select 'Unsolved).
+* New entry: Difficulty (Easy/Medium/Hard).
 * Change delete method from entering row number to an 'X' next to row, when hovering over row.
 * Ability to edit individual items in table.
-* Sorting option for getting problems by date, name, or time.
-* Filtering option for getting problems of specific categories or range of time.
+* Sorting option for getting problems by date, difficulty, length, or time.
+* Filtering option for getting problems by sources, difficulty, or range of time.
 * Design overhaul; make site more easy to navigate and easier to understand.
 
 ## Deployment
