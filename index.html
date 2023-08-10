@@ -18,7 +18,7 @@
         <h2>Keep track of your progress in data-structure and algorithm problems</h2>
     </header>
     <main>
-        <section id="input-section">
+        <section class="input-section">
             <div class="input-fields">
                 <div class="input-div">
                     <label for="question">Question</label>
@@ -47,10 +47,6 @@
                 <input id="deleteRow" name="deleteRow" type="number" placeholder="0">
                 <button id="deletButton" class="submit" onclick="deleteRow()">Delete Row</button>
             </div>
-            <div class="deleteRow-div">
-                <label class="clear-label" for="clearButton">Clear All Data:</label>
-                <button id="clearButton" name="clearButton" class="submit" onclick="clearData()">Clear</button>
-            </div>
         </section>
         <section id="table-section">
             <table id="problem-table">
@@ -63,6 +59,12 @@
                     <th>Time Spent</th>
                 </tr>
             </table>
+        </section>
+        <section class="input-section clear-section">
+            <div class="deleteRow-div clear-div">
+                <label class="clear-label" for="clearButton">Clear All Data:</label>
+                <button id="clearButton" name="clearButton" class="submit" onclick="clearData()">Clear</button>
+            </div>
         </section>
     </main>
 </body>

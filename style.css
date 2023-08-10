@@ -1,8 +1,12 @@
 body {
   background-color: rgb(13, 27, 42);
+  margin: 0;
 }
 
-h1, h2, h3, th {
+h1,
+h2,
+h3,
+th {
   color: rgb(220, 220, 220);
   text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -16,7 +20,12 @@ h3 {
   font-size: 1.5em;
 }
 
-p, input, label, tr, td, button {
+p,
+input,
+label,
+tr,
+td,
+button {
   color: rgb(220, 220, 220);
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
@@ -25,7 +34,7 @@ p, input, label, tr, td, button {
   filter: invert(0.9);
 }
 
-#input-section {
+.input-section {
   margin: 20px;
   padding: 30px;
   display: flex;
@@ -62,11 +71,19 @@ p, input, label, tr, td, button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 5px;
 }
 .deleteRow-div input {
   margin: 10px;
   width: 3rem;
+}
+
+.clear-section {
+  justify-content: center;
+  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 5rem;
+  margin: 5vh 0 5vh 40%;
 }
 
 #clearButton {
@@ -93,13 +110,15 @@ table {
   width: 85vw;
 }
 
-td, th {
+td,
+th {
   border: 1px solid white;
   padding: 10px;
   text-align: center;
 }
 
-th, .submit {
+th,
+.submit {
   background-color: rgb(44, 59, 88);
 }
 
@@ -121,7 +140,6 @@ input {
   }
   .deleteRow-div {
     text-align: center;
-    margin-left: 20px;
   }
 }
 @media screen and (max-width: 725px) {
@@ -133,7 +151,6 @@ input {
     flex-direction: column;
   }
   .input-div {
-    flex-direction: row;
     margin: 5px;
   }
   .input-div label {
@@ -145,14 +162,26 @@ input {
     width: 8rem;
     height: 1.8rem;
   }
-  .deleteRow-div {
-    margin-top: 5em;
-  }
   #table-section table {
     font-size: 0.6rem;
   }
 }
+@media screen and (max-width: 500px) {
+  .input-section {
+    flex-direction: column;
+  }
+  .deleteRow-div {
+    margin-top: 5em;
+  }
+  .clear-div {
+    margin: 0;
+  }
+}
 @media screen and (max-width: 425px) {
+  h2 {
+    width: 70vw;
+    margin-left: 15vw;
+  }
   #input-section {
     margin: 10px;
   }
@@ -166,10 +195,14 @@ input {
   #table-section {
     margin: 10px;
   }
-  tr, th, input {
+  tr,
+  th,
+  input {
     font-size: 0.9em;
   }
-  tr, th, td {
+  tr,
+  th,
+  td {
     padding: 5px;
   }
 }/*# sourceMappingURL=style.css.map */
