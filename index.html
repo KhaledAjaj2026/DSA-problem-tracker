@@ -30,7 +30,13 @@
                 </div>
                 <div class="input-div">
                     <label for="categories">Categories</label>
-                    <input id="categories" name="categories" type="text" placeholder="e.g. string, array">
+                    <select id="categories" name="categories">
+                        <option value=" none" selected disabled>select categories</option>
+                        <option value="backtracking">Backtracking</option>
+                        <option value="biconnected-component">Biconnected Component</option>
+                        <option value="binary-indexed-tree">Binary Indexed Tree</option>
+                    </select>
+                    <button id="add-category" class="submit">Add</button>
                 </div>
                 <div class="input-div">
                     <label for="date">Date</label>
@@ -40,12 +46,30 @@
                     <label for="time">Time</label>
                     <input id="time" name="time" type="number" placeholder="e.g. 60">
                 </div>
-                <button id="enterButton" class="submit" onclick="addRow()">Enter</button>
+                <button id="enter-button" class="submit" onclick="addRow()">Enter</button>
             </div>
-            <div class="deleteRow-div">
-                <label class="delete-label" for="deleteRow">Problem number to delete:</label>
-                <input id="deleteRow" name="deleteRow" type="number" placeholder="0">
-                <button id="deletButton" class="submit" onclick="deleteRow()">Delete Row</button>
+            <div class="categories-selected">
+                <p id="categories-selected_title">Selected Categories:</p>
+                <div id="item_window">
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                    <p>Strongly Connected Component</p>
+                </div>
             </div>
         </section>
         <section id="table-section">
@@ -60,10 +84,15 @@
                 </tr>
             </table>
         </section>
-        <section class="input-section clear-section">
+        <section id="deletion-section">
             <div class="deleteRow-div clear-div">
                 <label class="clear-label" for="clearButton">Clear All Data:</label>
                 <button id="clearButton" name="clearButton" class="submit" onclick="clearData()">Clear</button>
+            </div>
+            <div class="deleteRow-div">
+                <label class="delete-label" for="deleteRow">Problem number to delete:</label>
+                <input id="deleteRow" name="deleteRow" type="number" placeholder="0">
+                <button id="deletButton" class="submit" onclick="deleteRow()">Delete Row</button>
             </div>
         </section>
     </main>
