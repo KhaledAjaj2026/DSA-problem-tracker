@@ -111,7 +111,6 @@ select {
   height: 10rem;
   padding: 1.2rem;
   overflow-y: scroll;
-  padding-top: 3.5rem;
 }
 #item_window p {
   margin: 1rem;
@@ -166,6 +165,7 @@ th,
   background-color: rgb(46, 71, 99);
   width: 30vw;
   margin-left: 35vw;
+  margin-bottom: 5vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -264,6 +264,12 @@ th,
   #add-category {
     width: 3rem;
     margin-left: 0.7rem;
+  }
+  #item_window {
+    overflow: visible;
+  }
+  #item_window p {
+    margin: 0.6rem;
   }
   #table-section {
     margin: 10px;
