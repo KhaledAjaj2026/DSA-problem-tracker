@@ -17,10 +17,6 @@ h2 {
   font-size: 1em;
 }
 
-h3 {
-  font-size: 1.5em;
-}
-
 p,
 input,
 label,
@@ -37,6 +33,13 @@ input {
   padding: 1px 2px;
 }
 
+input,
+select {
+  border-radius: 3px;
+  background-color: rgb(13, 27, 42);
+  border: none;
+}
+
 ::-webkit-calendar-picker-indicator {
   filter: invert(0.9);
 }
@@ -50,9 +53,13 @@ input {
   align-items: center;
   border-radius: 10px;
   background-color: rgb(46, 71, 99);
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   padding-left: 10vw;
   padding-right: 10vw;
+}
+.input-section h3 {
+  flex-basis: 100%;
 }
 
 #clearButton {
@@ -67,12 +74,6 @@ input {
 .input-div label {
   padding-left: 10px;
   padding-right: 10px;
-}
-.input-div input,
-.input-div select {
-  border-radius: 3px;
-  background-color: rgb(13, 27, 42);
-  border: none;
 }
 .input-div input {
   margin-left: 5rem;
@@ -158,12 +159,17 @@ th,
   background-color: rgb(44, 59, 88);
 }
 
+/******* Deletion Section (Bottom) *******/
 #deletion-section {
+  border-radius: 10px;
+  padding: 2rem 0;
   background-color: rgb(46, 71, 99);
-  width: 30%;
+  width: 30vw;
+  margin-left: 35vw;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .deleteRow-div {
@@ -174,6 +180,9 @@ th,
 .deleteRow-div input {
   margin: 10px;
   width: 3rem;
+}
+.deleteRow-div button {
+  margin: 0;
 }
 
 .clear-section {
@@ -194,80 +203,18 @@ th,
     text-align: center;
   }
 }
-@media screen and (max-width: 945px) {
+@media screen and (max-width: 980px) {
   .input-section {
-    padding: 0;
+    margin: auto 10vw;
   }
 }
-@media screen and (max-width: 770px) {
-  h1 {
-    font-size: 2rem;
-  }
-  body {
-    padding-top: 30px;
-    font-size: 0.7em;
-  }
-  .input-section {
-    margin: auto 16vw;
-    flex-direction: column;
-    padding: 2rem 0;
-  }
-  .input-fields {
-    margin: 2rem auto;
-  }
-  .input-div {
-    margin: 5px;
-  }
-  .input-div label {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  .input-div input,
-  .input-div select {
-    margin-left: 3rem;
-    width: 10rem;
-    height: 1.8rem;
-  }
-  .input-div select {
-    margin-left: 3rem;
-    width: 6rem;
-    height: 1.8rem;
-  }
-  #add-category {
-    width: 3rem;
-    margin: 0;
-    margin-left: 1.2rem;
-  }
-  #table-section table {
-    font-size: 0.6rem;
+@media screen and (max-width: 800px) {
+  #deletion-section {
+    width: 50vw;
+    margin-left: 22.5vw;
   }
 }
-@media screen and (max-width: 450px) {
-  h1,
-  h2 {
-    width: 80vw;
-    margin-left: 15vw;
-  }
-  .input-section {
-    margin: 5vw;
-  }
-  .input-div {
-    margin: 5px;
-  }
-  .input-div input {
-    width: 8rem;
-    height: 1.8rem;
-  }
-  .input-div select {
-    width: 4.5rem;
-    height: 1.8rem;
-  }
-  #add-category {
-    margin-left: 0.7rem;
-  }
-  #table-section {
-    margin: 10px;
-  }
+@media screen and (max-width: 580px) {
   tr,
   th,
   input {
@@ -279,7 +226,54 @@ th,
     padding: 5px;
   }
 }
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 500px) {
+  body {
+    padding-top: 30px;
+    font-size: 0.7em;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h1,
+  h2 {
+    width: 80vw;
+    margin-left: 10vw;
+  }
+  .input-section {
+    margin: 5vw;
+  }
+  .input-fields {
+    margin: 2rem auto;
+  }
+  .input-div {
+    margin: 5px;
+  }
+  .input-div label {
+    padding: 0 5px;
+  }
+  .input-div input {
+    margin-left: 3rem;
+    width: 8rem;
+    height: 1.8rem;
+  }
+  .input-div select {
+    margin-left: 3rem;
+    width: 4.5rem;
+    height: 1.8rem;
+  }
+  #add-category {
+    width: 3rem;
+    margin-left: 0.7rem;
+  }
+  #table-section {
+    margin: 10px;
+  }
+  #deletion-section {
+    width: auto;
+    margin: 5vw;
+  }
+}
+@media screen and (max-width: 350px) {
   #item_window {
     width: 12rem;
   }
